@@ -1,11 +1,8 @@
-# PLAY level variables
-- name: variables from PLAY level
-  hosts: localhost
-  vars:
-    Course: "DevOps"
-    Trainer: "Sivakumar"
-    Duration: "110HRS"
+- name: variables from files
+  hosts: web
+  vars_files:
+  - vars.yaml
   tasks:
-  - name: check variables
+  - name: print the course information
     ansible.builtin.debug:
-      msg: "Hi, I am learning {{Course}}, Trainer is {{Trainer}}, Duration is {{Duration}}"
+      msg: "Hi, I am learning {{COURSE}}, Duration is: {{DURATION}}, Trainer: {{TRAINER}}"

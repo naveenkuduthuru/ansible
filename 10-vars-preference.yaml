@@ -1,29 +1,28 @@
-- name: variables from PLAY level
-  hosts: localhost
-  vars_files:
-  - variables.yaml
-  # vars_prompt:
-  # - name: PERSON
-  #   prompt: Please enter your name
-  #   private: false # user can see what they are entering
-  # - name: WISHES
-  #   prompt: Please enter your Wishes
-  #   private: false # user can't see what they are entering
+- name: variables to print
+  hosts: web
   # vars:
-  #   PERSON: "Siva from PLAY"
-  #   WISHES: "Morning from PLAY"
+  #   COURSE: "DevOps with AWS from PLAY level"
+  #   DURATION: "120HRS"
+  #   TRAINER: "Sivakumar Reddy M"
+  # vars_files:
+  # - vars.yaml
+  # vars_prompt:
+  # - name: COURSE
+  #   prompt: Please enter the course name
+  #   private: false # not confidential
   tasks:
-  - name: check variables
-    # vars:
-    #   PERSON: "Siva from TASK"
-    #   WISHES: "Morning from TASK"
+  - name: print the information
+    vars:
+      #COURSE: "DevOps with AWS from TASK level"
+      DURATION: "120HRS"
+      TRAINER: "Sivakumar Reddy M"
     ansible.builtin.debug:
-      msg: "Hello {{PERSON}}, Good {{WISHES}}"
+      msg: "Hi, I am learning {{COURSE}}"
 
-#1. CMD
-#2. task
-#3. File
+#1. command line/args
+#2. Task level
+#3. Files
 #4. prompt
-#5. play
+#5. Play
 #6. inventory
-#7. roles
+#7. Roles

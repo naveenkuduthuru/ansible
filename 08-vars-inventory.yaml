@@ -1,6 +1,6 @@
-- name: variables from PLAY level
-  hosts: localhost
+- name: variables to print
+  hosts: web
   tasks:
-  - name: check variables
+  - name: print the information
     ansible.builtin.debug:
-      msg: "Hi, I am learning {{Course}}, Trainer is {{Trainer}}, Duration is {{Duration}}"
+      msg: "Hi, I am learning {{COURSE}}, Duration is: {{DURATION}}, Trainer: {{TRAINER}}"

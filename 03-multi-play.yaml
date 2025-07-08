@@ -1,14 +1,15 @@
-# playbook is a list of Plays
-- name: PLAY-1
-  hosts: localhost
+#PLAY-01
+- name: PLAY-01
+  hosts: web
   tasks:
-  - name: PLAY-1 and TASK-1
+  - name: PLAY-01 TASK-01
     ansible.builtin.debug:
-      msg: "Hello from PLAY-1 and TASK-1"
+      msg: "This is from PLAY-01 and TASK-01"
 
-- name: PLAY-2
-  hosts: localhost
+#PLAY-02
+- name: PLAY-02
+  hosts: web
   tasks:
-  - name: PLAY-2 and TASK-2
+  - name: PLAY-02 TASK-01
     ansible.builtin.debug:
-      msg: "Hello from PLAY-2 and TASK-2"
+      msg: "This is from PLAY-02 and TASK-01""

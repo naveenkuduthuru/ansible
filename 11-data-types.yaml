@@ -1,30 +1,25 @@
-- name: checking data types
-  hosts: localhost
+- name: devops course information
+  hosts: local
+  connection: local # for localhosts
   vars:
-    NAME: Sivakumar # key value
-    Skills: #Skills is a list type
-    - DevOps
-    - Shell
-    - ANsible
+    course: "DevOps with AWS" #string
+    duration: 120 #number
+    topics: #list
     - Linux
-    Experience: # Experience is map type. It contains key value pairs
-      DevOps: 7
-      AWS: 6
-      Docker: 4
-    Trainer: true # boolean
+    - Shell
+    - Ansible
+    - Terraform
+    - AWS
+    - K8
+    live: true #boolean
+    tools: #map/dictionary
+      ci: jenkins # string
+      cm: ansible
+      cloud: aws
+      aws:
+      - IAM
+      - S3
   tasks:
-  - name: print key value pair
+  - name: print the course information
     ansible.builtin.debug:
-      msg: "name: {{NAME}}"
-
-  - name: print list
-    ansible.builtin.debug:
-      msg: "Skills: {{Skills}}"
-  
-  - name: print map
-    ansible.builtin.debug:
-      msg: "Experience: {{Experience}}"
-
-  - name: print boolean
-    ansible.builtin.debug:
-      msg: "is he Trainer: {{Trainer}}"
+      msg: "Hi, I am learning {{ course }}, with duration: {{ duration }}, topics are: {{ topics }}, and live: {{ live }}, tools are: {{ tools }}"
